@@ -2,16 +2,18 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import userData from './userData';
 import auth from '../../components/auth/auth';
-import navbar from '../../components/navbar/navbar';
+import loginNavbar from '../../components/views/boards';
+import logoutNavbar from '../../components/views/home';
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const currentUser = userData.setCurrentUser(user);
-      navbar.buildNavbar(currentUser);
+      loginNavbar.loginView(currentUser);
     } else {
       auth.loginButton();
-      $('#nav').html('');
+      logoutNavbar.logoutView();
+      // $('#nav').html('hi');
     }
   });
 };

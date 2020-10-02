@@ -10,7 +10,7 @@ const logoutEvent = () => {
   });
 };
 
-const buildNavbar = () => {
+const buildNavbar = (currentUser) => {
   $('#nav').html(
     `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Pinterest 2.0</a>
@@ -24,15 +24,11 @@ const buildNavbar = () => {
         <li class="nav-item active">
           <a class="nav-link" href="#">Boards <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <li class="nav-user-name">
+          Welcome, ${currentUser.name}!
+        </li>
         <button class="nav-link btn btn-danger p-2" id="navbar-logout-button">Logout</button>
       </form>
     </div>
