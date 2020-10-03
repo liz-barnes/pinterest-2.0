@@ -12,12 +12,11 @@ const checkLoginStatus = () => {
     if (user) {
       const currentUser = userData.setCurrentUser(user);
       loginNavbar.loginView(currentUser);
+      viewHelper.viewListener('nav-boards-page');
       // userBoards.showUserBoards();
     } else {
       auth.loginButton();
       logoutNavbar.logoutView();
-      viewHelper.viewListener('nav-boards-page');
-      // $('#nav').html('hi');
     }
   });
 };
