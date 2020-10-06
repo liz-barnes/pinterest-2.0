@@ -55,7 +55,6 @@ const getDataForPinsView = () => new Promise((resolve, reject) => {
         };
         pins.push({ ...pin, ...boardUse });
         resolve(pins);
-        console.warn(pins, 'pins in pinsviewdata');
       });
     });
   }).catch((error) => reject(error));

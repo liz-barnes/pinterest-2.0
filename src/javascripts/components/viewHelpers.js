@@ -1,3 +1,4 @@
+import pinData from '../helpers/data/pinData';
 import userBoards from './views/userBoards';
 import singleBoardView from './views/singleBoard';
 import pinsView from './views/pinsView';
@@ -24,6 +25,23 @@ const viewListener = (view) => {
     console.warn(boardId);
     viewHelper('single-board', boardId);
   });
+
+  $('body').on('click', '.remove-pin', (e) => {
+    e.stopImmediatePropagation();
+    const firebaseKey = e.currentTarget.id;
+    console.warn('object clicked', e.currentTarget.id);
+    $(`.pin-card#${firebaseKey}`).remove();
+    pinData.removePin(firebaseKey);
+  });
+
+  // $('body').on('click', '#remove-pin', (e) => {
+  //   e.stopImmediatePropagation();
+  //   console.warn(e, 'pin e');
+  //   const pinId = e.currentTarget.id;
+  //   console.warn(pinId);
+  //   pinData.removePin(pinId);
+  //   // viewHelper('single-board', boardId);
+  // });
 };
 
 viewHelper('show-pins');

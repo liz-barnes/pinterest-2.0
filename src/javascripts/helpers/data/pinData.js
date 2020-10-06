@@ -38,7 +38,8 @@ const getBoardsPins = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-getPins();
+const removePin = (firebaseKey) => axios.delete(`${baseUrl}/pins/${firebaseKey}.json`);
+
 console.warn(getBoardsPins('-MHxowsBP06rER7DHJhT'), 'function help');
 
-export default { getBoardsPins, getPins };
+export default { getBoardsPins, getPins, removePin };
