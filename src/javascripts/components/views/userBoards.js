@@ -17,7 +17,7 @@ const userBoardsView = () => {
 
 const showBoards = () => {
   $('body').on('click', '#nav-boards-page', (e) => {
-    $('#app').html('');
+    // $('#app').html('');
     userBoardsView();
     // target = e.currentTarget.id;
     console.warn('clicked', e);

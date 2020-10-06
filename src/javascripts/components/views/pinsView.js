@@ -4,16 +4,16 @@ import pinCard from '../cards/pinCards';
 // import boardData from '../../helpers/data/boardData';
 
 const pinsView = () => {
-  $('#app').html('');
+  $('#pins').html('');
   mergedData.getDataForPinsView()
     .then((response) => {
       console.warn(response);
       if (response.length) {
         response.forEach((item) => {
-          $('#app').append(pinCard.pinMaker(item));
+          $('#pins').append(pinCard.pinMaker(item));
         });
       } else {
-        $('#app').append('<h2>NO PINS</h2>');
+        $('#pins').append('<h2>NO PINS</h2>');
       }
     });
 };
@@ -25,7 +25,5 @@ const pinsView = () => {
 // };
 
 // boardPinsView(item);
-
-pinsView();
 
 export default { pinsView };
