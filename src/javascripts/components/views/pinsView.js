@@ -1,5 +1,7 @@
 import mergedData from '../../helpers/data/mergedData';
 import pinCard from '../cards/pinCards';
+// import pinData from '../../helpers/data/pinData';
+// import boardData from '../../helpers/data/boardData';
 
 const pinsView = () => {
   $('#app').html('');
@@ -15,5 +17,15 @@ const pinsView = () => {
       }
     });
 };
+
+// const boardPinsView = (item) => {
+//   if (pinData.getPins().boardFirebaseKey === boardData.getBoards().firebaseKey) {
+//     $('#app').append(pinCard.pinMaker(item));
+//   }
+// };
+
+// boardPinsView(item);
+
+pinsView();
 
 export default { pinsView };
