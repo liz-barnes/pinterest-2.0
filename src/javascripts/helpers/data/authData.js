@@ -5,6 +5,7 @@ import auth from '../../components/auth/auth';
 import loginNavbar from '../../components/views/boards';
 import logoutNavbar from '../../components/views/home';
 import viewHelper from '../../components/viewHelpers';
+import userBoards from '../../components/views/userBoards';
 // import userBoards from '../../components/views/userBoards';
 
 const checkLoginStatus = () => {
@@ -13,6 +14,8 @@ const checkLoginStatus = () => {
       const currentUser = userData.setCurrentUser(user);
       loginNavbar.loginView(currentUser);
       viewHelper.viewListener('nav-boards-page');
+      viewHelper.viewListener('single-board');
+      userBoards.showBoards();
       // userBoards.showUserBoards();
     } else {
       auth.loginButton();

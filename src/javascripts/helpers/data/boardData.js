@@ -35,4 +35,17 @@ const getUserBoards = (userId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { getBoards, getUserBoards };
+const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/projects.json?orderBy="firebaseKey"&equalTo="${boardId}"`)
+    .then((response) => {
+      console.warn(response, 'board response');
+      const board = Object.values(response.data);
+      const thisBoard = board[0];
+      console.warn('thisBoard array', thisBoard);
+      resolve(thisBoard);
+    }).catch((error) => reject(error));
+});
+
+getSingleBoard('-MHxowsBP06rER7DHJhT');
+
+export default { getBoards, getUserBoards, getSingleBoard };

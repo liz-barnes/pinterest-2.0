@@ -15,4 +15,13 @@ const userBoardsView = () => {
     });
 };
 
-export default { userBoardsView };
+const showBoards = () => {
+  $('body').on('click', '#nav-boards-page', (e) => {
+    $('#app').html('');
+    userBoardsView();
+    // target = e.currentTarget.id;
+    console.warn('clicked', e);
+  });
+};
+
+export default { userBoardsView, showBoards };

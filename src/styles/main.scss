@@ -2,8 +2,8 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: peru;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
@@ -15,4 +15,20 @@ body {
   list-style: none;
   color: black;
   margin-right: 15px;
+}
+
+.board-container {
+  width: 250px;
+}
+
+.board-id {
+  text-align: center;
+}
+
+.project-card, .pin-card{
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  width: 350px;
 }
