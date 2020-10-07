@@ -65,6 +65,19 @@ const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const addBoard = (data) => axios
+  .post(`${baseUrl}/projects.json`, data)
+  .then((response) => {
+    const update = { firebaseKey: response.data.name };
+    axios.patch(`${baseUrl}/projects/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
 getSingleBoard('-MHxowsBP06rER7DHJhT');
 
-export default { getBoards, getUserBoards, getSingleBoard };
+export default {
+  getBoards,
+  getUserBoards,
+  getSingleBoard,
+  addBoard
+};
