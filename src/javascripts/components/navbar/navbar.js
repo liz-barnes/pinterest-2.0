@@ -27,6 +27,9 @@ const buildNavbar = (currentUser) => {
         <li class="nav-item ">
           <a id="add-board-form-link" class="nav-link" href="#">Add Board<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item ">
+          <a id="add-pin-form-link" class="nav-link" href="#">Add Pin<span class="sr-only">(current)</span></a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-user-name">

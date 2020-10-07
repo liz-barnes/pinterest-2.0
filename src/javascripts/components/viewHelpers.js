@@ -3,6 +3,7 @@ import userBoards from './views/userBoards';
 import singleBoardView from './views/singleBoard';
 import pinsView from './views/pinsView';
 import editPinView from './views/editPin';
+import addPinView from './views/addPin';
 import addBoardView from './views/addBoard';
 
 const viewHelper = (id, arg) => {
@@ -16,6 +17,8 @@ const viewHelper = (id, arg) => {
       return pinsView.pinsView();
     case 'add-board-form-link':
       return addBoardView.addBoardView();
+    case 'add-pin-form-link':
+      return addPinView.addPinView();
     default:
       return console.warn('nothing clicked');
   }
@@ -28,6 +31,12 @@ const viewListener = (view) => {
     console.warn('add board clicked', e);
     const boardId = e.currentTarget.id;
     viewHelper('add-board-form-link', boardId);
+  });
+
+  $('body').on('click', '#add-pin-form-link', (e) => {
+    console.warn('add pin clicked', e);
+    const pinId = e.currentTarget.id;
+    viewHelper('add-pin-form-link', pinId);
   });
 
   $('body').on('click', '.project-card', (e) => {

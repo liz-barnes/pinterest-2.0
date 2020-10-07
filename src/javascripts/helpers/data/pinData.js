@@ -51,10 +51,19 @@ const removePin = (firebaseKey) => axios.delete(`${baseUrl}/pins/${firebaseKey}.
 const updatePin = (firebaseKey, pinObject) => axios.patch(`${baseUrl}/pins/${firebaseKey}.json`, pinObject);
 // console.warn(getBoardsPins('-MHxowsBP06rER7DHJhT'), 'function help');
 
+const addPin = (data) => axios
+  .post(`${baseUrl}/pins.json`, data)
+  .then((response) => {
+    const update = { firebaseKey: response.data.name };
+    axios.patch(`${baseUrl}/pins/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
 export default {
   getBoardsPins,
   getPins,
   removePin,
   getSinglePin,
-  updatePin
+  updatePin,
+  addPin
 };
