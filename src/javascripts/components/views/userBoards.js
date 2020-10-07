@@ -1,8 +1,10 @@
 import mergedData from '../../helpers/data/mergedData';
 import card from '../cards/boardCards';
+// import boardData from '../../helpers/data/boardData';
 
 const userBoardsView = () => {
   mergedData.getDataForBoardsView()
+  // boardData.getUserBoards()
     .then((response) => {
       console.warn('user boards view response', response);
       if (response.length) {

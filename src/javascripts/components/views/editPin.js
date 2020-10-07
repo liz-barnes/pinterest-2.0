@@ -9,6 +9,6 @@ const editPinView = (pinFirebaseKey) => {
   });
 };
 
-editPinView();
+editPinView('-MI10oPmJuguK9T2vGTc');
 
 export default { editPinView };

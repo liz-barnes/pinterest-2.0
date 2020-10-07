@@ -38,9 +38,9 @@ const getBoards = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getUserBoards = (userId) => new Promise((resolve, reject) => {
+const getUserBoards = (userUid) => new Promise((resolve, reject) => {
   axios
-    .get(`${baseUrl}/projects.json?orderBy="userId"&equalTo="${userId}"`)
+    .get(`${baseUrl}/projects.json?orderBy="userUid"&equalTo="${userUid}"`)
     .then((response) => {
       const userBoards = response.data;
       console.warn('user boards', userBoards);

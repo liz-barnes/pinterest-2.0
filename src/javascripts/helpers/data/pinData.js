@@ -48,11 +48,13 @@ const getSinglePin = (pinFirebaseKey) => new Promise((resolve, reject) => {
 
 const removePin = (firebaseKey) => axios.delete(`${baseUrl}/pins/${firebaseKey}.json`);
 
+const updatePin = (firebaseKey, pinObject) => axios.patch(`${baseUrl}/pins/${firebaseKey}.json`, pinObject);
 // console.warn(getBoardsPins('-MHxowsBP06rER7DHJhT'), 'function help');
 
 export default {
   getBoardsPins,
   getPins,
   removePin,
-  getSinglePin
+  getSinglePin,
+  updatePin
 };
