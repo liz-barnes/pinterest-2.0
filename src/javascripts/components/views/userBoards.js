@@ -4,7 +4,7 @@ import card from '../cards/boardCards';
 const userBoardsView = () => {
   mergedData.getDataForBoardsView()
     .then((response) => {
-      console.warn(response);
+      console.warn('user boards view response', response);
       if (response.length) {
         response.forEach((item) => {
           $('#app').append(card.buildBoardCard(item));

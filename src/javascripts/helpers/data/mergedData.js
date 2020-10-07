@@ -7,13 +7,15 @@ const getDataForBoardsView = () => new Promise((resolve, reject) => {
     userData.getUsers().then((userResponse) => {
       const boards = [];
       boardResponse.forEach((board) => {
-        const userObject = userResponse.find((user) => user.firebaseKey === board.userId);
+        const userObject = userResponse.find((user) => user.uid === board.userUid);
+        console.warn('userobject', userObject);
         const userUse = {
           userName: userObject.name,
           userEmail: userObject.email
         };
         boards.push({ ...board, ...userUse });
         resolve(boards);
+        console.warn('user boards resolve', boards);
       });
     });
   }).catch((error) => reject(error));
@@ -33,12 +35,12 @@ const getSingleUserView = (userId) => new Promise((resolve, reject) => {
 const getSingleBoardView = (boardId) => new Promise((resolve, reject) => {
   boardData.getSingleBoard(boardId)
     .then((boardResponse) => {
-      console.warn(boardResponse);
-      pinData.getBoardsPins(boardResponse.firebaseKey)
+      console.warn(boardResponse.firebaseKey);
+      pinData.getBoardsPins(boardResponse)
         .then((pinResponse) => {
           const finalObject = { board: boardResponse, pins: pinResponse };
           resolve(finalObject);
-          console.warn(finalObject);
+          // console.warn(finalObject);
         });
     }).catch((error) => reject(error));
 });
@@ -60,7 +62,7 @@ const getDataForPinsView = () => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-console.warn('get single board view', getSingleBoardView('-MHxowsBP06rER7DHJhT'));
+// console.warn('get single board view', getSingleBoardView('-MHxowsBP06rER7DHJhT'));
 export default {
   getDataForBoardsView,
   getSingleUserView,

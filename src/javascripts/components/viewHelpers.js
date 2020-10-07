@@ -2,6 +2,7 @@ import pinData from '../helpers/data/pinData';
 import userBoards from './views/userBoards';
 import singleBoardView from './views/singleBoard';
 import pinsView from './views/pinsView';
+import editPinView from './views/editPin';
 
 const viewHelper = (id, arg) => {
   $('#app').html('');
@@ -32,6 +33,12 @@ const viewListener = (view) => {
     console.warn('object clicked', e.currentTarget.id);
     $(`.pin-card#${firebaseKey}`).remove();
     pinData.removePin(firebaseKey);
+  });
+
+  $('body').on('click', '#edit-pin', (e) => {
+    e.stopImmediatePropagation();
+    console.warn('clicked bitch', e);
+    editPinView.editPinView();
   });
 
   // $('body').on('click', '#remove-pin', (e) => {

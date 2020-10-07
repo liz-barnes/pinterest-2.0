@@ -3,6 +3,25 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
+// const getBoards = (userUid) => new Promise((resolve, reject) => {
+//   axios
+//     .get(`${baseUrl}/projects.json?orderBy="userUid"&equalTo="${userUid}"`)
+//     .then((response) => {
+//       const boards = response.data;
+
+//       const boardsArray = [];
+//       if (boards) {
+//         Object.keys(boards).forEach((boardId) => {
+//           boardsArray.push(boards[boardId]);
+//           resolve(boardsArray);
+//         });
+//       }
+//     })
+//     .catch((error) => reject(error));
+// });
+
+// getBoards('hJJdHVG0kWeYraMU8GOAIIHO1Dl2');
+
 const getBoards = () => new Promise((resolve, reject) => {
   axios
     .get(`${baseUrl}/projects.json`)
@@ -24,6 +43,7 @@ const getUserBoards = (userId) => new Promise((resolve, reject) => {
     .get(`${baseUrl}/projects.json?orderBy="userId"&equalTo="${userId}"`)
     .then((response) => {
       const userBoards = response.data;
+      console.warn('user boards', userBoards);
       const boards = [];
       if (userBoards) {
         Object.keys(userBoards).forEach((boardId) => {
@@ -38,10 +58,9 @@ const getUserBoards = (userId) => new Promise((resolve, reject) => {
 const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/projects.json?orderBy="firebaseKey"&equalTo="${boardId}"`)
     .then((response) => {
-      console.warn(response, 'board response');
       const board = Object.values(response.data);
       const thisBoard = board[0];
-      console.warn('thisBoard array', thisBoard);
+      // console.warn('thisBoard array', thisBoard);
       resolve(thisBoard);
     }).catch((error) => reject(error));
 });

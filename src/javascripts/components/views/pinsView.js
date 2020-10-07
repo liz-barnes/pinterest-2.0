@@ -7,7 +7,7 @@ const pinsView = () => {
   $('#pins').html('');
   mergedData.getDataForPinsView()
     .then((response) => {
-      console.warn(response);
+      console.warn('pins response for data review', response);
       if (response.length) {
         response.forEach((item) => {
           $('#pins').append(pinCard.pinMaker(item));

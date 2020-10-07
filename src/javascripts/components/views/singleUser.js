@@ -2,7 +2,7 @@ import mergedData from '../../helpers/data/mergedData';
 import userBoards from './userBoards';
 
 const singleFarmerView = (userId) => {
-  console.warn(userId);
+  // console.warn(userId);
   mergedData.getSingleUserView(userId)
     .then((response) => {
       const { user, boards } = response;
@@ -17,7 +17,7 @@ const singleFarmerView = (userId) => {
       } else {
         $('#single-view').append('<h1>NO COWS!</h1>');
       }
-      console.warn(response.user, response.boards);
+      // console.warn(response.user, response.boards);
     });
 };
 
