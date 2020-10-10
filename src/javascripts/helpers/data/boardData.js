@@ -73,7 +73,7 @@ const addBoard = (data) => axios
   })
   .catch((error) => console.warn(error));
 
-getSingleBoard('-MHxowsBP06rER7DHJhT');
+// getSingleBoard('-MHxowsBP06rER7DHJhT');
 
 export default {
   getBoards,

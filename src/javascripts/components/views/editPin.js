@@ -5,7 +5,7 @@ const editPinView = (pinFirebaseKey) => {
   $('#app').html('<div id="edit-pin-form"></div>');
   pinData.getSinglePin(pinFirebaseKey).then((response) => {
     form.editPinForm(response);
-    // console.warn(response);
+    console.warn('edit pin view', response);
   });
 };
 
